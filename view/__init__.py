@@ -1,1 +1,1 @@
-from .view import menu
+from .view import View

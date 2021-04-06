@@ -1,50 +1,33 @@
 class View(object):
 
     @staticmethod
-    def show_players(players):
-        print('--- {} LISTE ---' )
-        for player in players:
-            print('* {}' .format(player))
-
-    @staticmethod
-    def show_number_point_list(players):
+    def show_number_alpha(players):
         print('--- {} LISTE ---')
         for i, player in enumerate(players):
-            print('{}. {}' .format(i+1, player))
+            print('{}. {}, {}, {}, {}, {}' .format(i+1, player.name,
+                                               player.birthday, player.gender, player.rank, player.point))
 
     @staticmethod
-    def show_player(player):
-        print('//////////////////////////////////////////////////////////////')
-        player = str(player)
-        print('Voici le joueur ' + player)
-        print('//////////////////////////////////////////////////////////////')
+    def show_number_rank(players):
+        print('--- {} LISTE ---')
+        for i, player in enumerate(players):
+            print('{}. {}, {}, {}, {}, {}' .format(i+1, player.rank, player.name,
+                                                   player.birthday, player.gender, player.point))
 
     @staticmethod
-    def display_missing_player_error(player, err):
-        print('**************************************************************')
-        print('Ce joueur {} n\'est pas inscrit!'.format(player.upper()))
-        print('**************************************************************')
+    def show_tournament(tournament):
+        print('--- {} LISTE ---')
+
 
     @staticmethod
-    def display_player_already_stored_error(player, err):
-        print('**************************************************************')
-        print('Le joueur {} est déjà inscrit!'
-              .format(player.upper()))
-        print('**************************************************************')
+    def show_round_one(players):
+        print('--- Tour 1 ---')
+        print(len(players))
+        print(players[0] + 'Contre' + players[4] +'/n' +
+              players[1] + 'Contre' + players[5] +'/n' +
+              players[2] + 'Contre' + players[6] +'/n' +
+              players[3] + 'Contre' + players[7] +'/n' )
 
-    @staticmethod
-    def display_player_not_yet_stored_error(player, err):
-        print('**************************************************************')
-        print('Ce joueur {} n\'est pas inscrit'
-              .format(player.upper()))
-        print('**************************************************************')
-
-    @staticmethod
-    def display_player_stored(player):
-        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-        print('Le joueur {} a été ajouté'
-              .format(player.upper()))
-        print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
 
     @staticmethod
     def display_player_updated(player, o_firstname, o_birthday, o_sexe, o_rank,
@@ -60,8 +43,10 @@ class View(object):
               .format(player, o_rank, n_rank))
         print('---   ---   ---   ---   ---   ---   ---   ---   ---   ---   --')
 
+
     @staticmethod
-    def display_player_deletion(lastname):
-        print('--------------------------------------------------------------')
-        print('Le joueur {} a été supprimé'.format(lastname))
-        print('--------------------------------------------------------------')
+    def menu():
+        print('Que voulez vous faire ?\n1: Créer un nouveau tournoi \n2: Ajouter des joueurs'
+              '\n3: Afficher les joueurs du tournoi classé par nom \n4: Afficher les joueurs du tournoi classé par rang'
+              '\n5: Afficher information tournoi \n6: Lancer tour 1'
+              '\n0: Quitter le programme')

@@ -1,2 +1,2 @@
-from .model import player
-from .model import tournament
+from .player import Player
+from .tournament import Tournament

@@ -1,56 +1,37 @@
 class Player:
-    def __init__(self, lastname, firstname, birthday, sexe, rank):
-        self.lastname = lastname
-        self.firstname = firstname
+    def __init__(self, name, birthday, gender, rank, point):
+        self.name = name
         self.birthday = birthday
-        self.sexe = sexe
+        self.gender = gender
         self.rank = rank
-    players = list()
+        self.point = point
 
-    def create_player(self):
-    global players
-    results = list(filter(lambda x: x['name'] == name, items))
-    if results:
-        raise mvc_exc.ItemAlreadyStored('"{}" already stored!'.format(name))
-    else:
-        players.append({'name': name, 'price': price, 'quantity': quantity})
-
-
-    def read_player(lastname):
+    def create_players():
         global players
-        my_players = Query()
-        if players.search(my_players.nom == lastname):
-            return players.search(my_players.nom == lastname)
-        else:
-            raise PlayerNotRegistered
+        global serialized_players
+        players = list()
+        serialized_players = list()
 
+    def create_player(name, birthday, gender, rank, point):
+        global players
+        global serialized_players
+        player = Player(name=name, birthday=birthday, gender=gender, rank=rank, point=point)
+        players.append(player)
+        serialized_player = {'name': player.name, 'birthday': player.birthday, 'gender': player.gender,
+                             'rank': player.rank, 'point' : player.point}
+        serialized_players.append(serialized_player)
 
     def read_players_alphabetic():
         global players
-        return [player for player in players]
+        myplayers = (sorted(players, key=lambda player: player.name ))
+        return [player for player in myplayers]
 
-    def update_player(lastname, firstname, birthday, sexe, rank):
+    def read_player_rank():
         global players
-        my_players = Query()
-        if players.search(my_players.nom == lastname):
-            players.update_multiple([({'prénom': firstname}, my_players.nom == lastname),
-                                     ({'date de naissance': birthday}, my_players.nom == lastname),
-                                     ({'sexe': sexe}, my_players.nom == lastname),
-                                     ({'classement' : rank}, my_players.nom == lastname)])
-        else:
-            raise PlayerNotRegistered
-
-    def delete_player(lastname):
-        global players
-        my_players = Query()
-        if players.search(my_players.nom == lastname):
-            players.remove(my_players.nom == lastname)
-        else:
-            raise PlayerNotRegistered
+        myplayers = (sorted(players, key=lambda player: player.rank ))
+        return [player for player in myplayers]
 
 
-class PlayerAlreadyRegistered(Exception):
-    pass
 
-class PlayerNotRegistered(Exception):
-    pass
+
+
