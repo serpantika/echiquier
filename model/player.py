@@ -1,4 +1,7 @@
+from tinydb import TinyDB
+
 class Player:
+
     def __init__(self, name, birthday, gender, rank, point):
         self.name = name
         self.birthday = birthday
@@ -31,7 +34,17 @@ class Player:
         myplayers = (sorted(players, key=lambda player: player.rank ))
         return [player for player in myplayers]
 
+    def read_player():
+        global players
+        return [player for player in players]
 
+    def save_player(name):
+        pass
+    def load_players(name):
+        pass
 
+    def modify_player(choice, name, birthday, gender, rank, point):
+        global players
+            players[int(choice)-1] = Player(name=name, birthday=birthday, gender=gender, rank=rank, point=point)
 
 

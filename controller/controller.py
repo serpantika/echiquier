@@ -4,9 +4,11 @@ from model import Tournament
 
 class Controller(object):
 
+    def start_players():
+        Player.create_players()
+
     def start_menu():
         choice = 0
-        Player.create_players()
         View.menu()
         choice = input()
         choice = int(choice)
@@ -58,6 +60,18 @@ class Controller(object):
         elif choice == 6:
             Controller.first_round()
 
+        elif choice == 7:
+            choice = input("1-Sauvegarder 2-Charger")
+            if choice == 1:
+                pass
+            if choice == 2:
+                pass
+            else :
+                print("commande erreur")
+                pass
+
+        elif choice == 8:
+            Controller.modify_player()
         elif choice == 0:
             quit()
 
@@ -85,5 +99,14 @@ class Controller(object):
         players = Player.read_player_rank()
         View.show_round_one(players)
 
-
+    def modify_player():
+        players = Player.read_player()
+        View.show_number_alpha(players)
+        choice = input("quel joueur voulait vous modifier (rentrer chiffre): ")
+        name = input("Nom: ")
+        birthday = input("Date de naissance: ")
+        gender = input("Genre: ")
+        rank = input("Classement: ")
+        point = input("Point: ")
+        Player.modify_player(choice, name, birthday, gender, rank, point)
 

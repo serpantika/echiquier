@@ -48,5 +48,5 @@ class View(object):
     def menu():
         print('Que voulez vous faire ?\n1: Créer un nouveau tournoi \n2: Ajouter des joueurs'
               '\n3: Afficher les joueurs du tournoi classé par nom \n4: Afficher les joueurs du tournoi classé par rang'
-              '\n5: Afficher information tournoi \n6: Lancer tour 1'
+              '\n5: Afficher information tournoi \n6: Lancer tour 1 \n7: Sauvegarder/charger \n8: modifier joueur'
               '\n0: Quitter le programme')

@@ -1,3 +1,5 @@
+from tinydb import TinyDB
+import os
 class Tournament:
     def __init__(self, name, localisation, date, nbturn, rounds, players, timecontrol, description):
         self.name = name
@@ -16,3 +18,12 @@ class Tournament:
 
     def read_tournament():
         global tournament
+
+    def save_tournament(name):
+        if not os.path.exists("save" + str(name)):
+            os.makedirs("save" + str(name))
+
+        pass
+
+    def load_players(name):
+        pass
