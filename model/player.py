@@ -43,7 +43,7 @@ class Player:
 
     def modify_player(choice, name, birthday, gender, rank, point):
         global players
-        copyplayer = players[int(choice-1)]
+        copyplayer = players[int(choice)-1]
         copyname = copyplayer.name
         copybirthday = copyplayer.birthday
         copygender = copyplayer.gender
@@ -59,7 +59,6 @@ class Player:
             rank = copyrank
         elif not point:
             point = copypoint
-        else:
-            players[int(choice)-1] = Player(name=name, birthday=birthday, gender=gender, rank=rank, point=point)
+        players[int(choice)-1] = Player(name=name, birthday=birthday, gender=gender, rank=rank, point=point)
 
 
