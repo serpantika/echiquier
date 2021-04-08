@@ -1,5 +1,3 @@
-from tinydb import TinyDB
-
 class Player:
 
     def __init__(self, name, birthday, gender, rank, point):
@@ -45,6 +43,23 @@ class Player:
 
     def modify_player(choice, name, birthday, gender, rank, point):
         global players
+        copyplayer = players[int(choice-1)]
+        copyname = copyplayer.name
+        copybirthday = copyplayer.birthday
+        copygender = copyplayer.gender
+        copyrank = copyplayer.rank
+        copypoint = copyplayer.point
+        if not name:
+            name = copyname
+        elif not birthday:
+            birthday = copybirthday
+        elif not gender:
+            gender = copygender
+        elif not rank:
+            rank = copyrank
+        elif not point:
+            point = copypoint
+        else:
             players[int(choice)-1] = Player(name=name, birthday=birthday, gender=gender, rank=rank, point=point)
 
 

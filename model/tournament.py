@@ -1,4 +1,3 @@
-from tinydb import TinyDB
 import os
 class Tournament:
     def __init__(self, name, localisation, date, nbturn, rounds, players, timecontrol, description):
